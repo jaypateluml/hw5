@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Jay Patel -->
+<!-- COMP 4610 GUI I - Homework 5 -->
+<!-- GitHub: https://github.com/jaypateluml/hw5 -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>HW5 Scrabble - Single Line</title>
+        <link rel="icon" href="data:,">
+        <!-- jquery ui theme from the cdn -->
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <!-- my css -->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body data-board="line">
+        <div id="page">
+            <h1>Scrabble Line</h1>
+            <p id="links"><a href="full-board.html">Full board version</a></p>
+
+            <!-- score box -->
+            <div id="score_box">
+                <p>Word: <span id="current-word">-</span></p>
+                <p>Word score: <span id="current-score">0</span></p>
+                <p>Total score: <span id="total-score">0</span></p>
+                <p>Tiles left: <span id="tiles-left">0</span></p>
+                <p>Dictionary check: <span id="word-check">Loading word list...</span></p>
+            </div>
+
+            <!-- buttons -->
+            <div id="buttons">
+                <button id="submit-word" type="button">Submit Word</button>
+                <button id="clear-board" type="button">Clear Board</button>
+                <button id="new-tiles" type="button">Deal New Tiles</button>
+                <button id="restart-game" type="button">Restart Game</button>
+            </div>
+
+            <p id="message">Loading tile data...</p>
+
+            <!-- the board gets filled in by the js -->
+            <h2>Board</h2>
+            <div id="board"></div>
+
+            <!-- rack -->
+            <h2>Rack</h2>
+            <div id="rack_area">
+                <div id="rack"></div>
+            </div>
+
+            <!-- round history -->
+            <div id="left_column">
+                <h2>Round History</h2>
+                <ol id="history"></ol>
+            </div>
+
+            <!-- bonus color key -->
+            <div id="right_column">
+                <h2>Board Bonuses</h2>
+                <ul id="legend">
+                    <li><span class="sample double-letter"></span> Double Letter</li>
+                    <li><span class="sample triple-letter"></span> Triple Letter</li>
+                    <li><span class="sample double-word"></span> Double Word</li>
+                    <li><span class="sample triple-word"></span> Triple Word</li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <!-- jquery from week 5, then jquery ui from the cdn, then my code -->
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script src="js/scrabble.js"></script>
+    </body>
+</html>

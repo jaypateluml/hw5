@@ -1,0 +1,270 @@
+/* Jay Patel */
+/* COMP 4610 GUI I - Homework 5 */
+/* GitHub: https://github.com/jaypateluml/hw5 */
+/* the bonus square colors are based on the real scrabble board, the tile images and rack picture came with the hw */
+
+/* page background */
+body {
+    background-color: #f4f0df;
+    color: #333333;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* the white box everything sits in */
+#page {
+    width: 1000px;
+    margin: 20px auto 20px auto;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+    padding: 20px;
+}
+
+/* titles */
+h1 {
+    font-size: 32px;
+    margin: 0 0 5px 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+    border-bottom: 1px solid #999999;
+}
+
+#links {
+    margin-top: 0;
+}
+
+a {
+    color: #005baa;
+}
+
+/* score box up top */
+#score_box {
+    border: 1px solid #999999;
+    padding: 10px;
+    margin: 15px 0 15px 0;
+    background-color: #eeeeee;
+}
+
+/* put the score lines side by side */
+#score_box p {
+    display: inline-block;
+    width: 185px;
+    margin: 4px 10px 4px 0;
+}
+
+/* the dictionary check line is longer so give it more room */
+#score_box p:last-child {
+    width: 310px;
+}
+
+#current-word,
+#current-score,
+#total-score,
+#tiles-left,
+#word-check {
+    font-weight: bold;
+}
+
+/* the buttons */
+#buttons {
+    margin: 10px 0 10px 0;
+}
+
+button {
+    padding: 6px 12px 6px 12px;
+    margin-right: 8px;
+    border: 1px solid #666666;
+    background-color: #dddddd;
+    color: #000000;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #cccccc;
+    cursor: pointer;
+}
+
+button:disabled {
+    color: #777777;
+    background-color: #eeeeee;
+}
+
+/* the message line, green normaly and red for warnings */
+#message {
+    min-height: 20px;
+    font-weight: bold;
+    color: #2d5d34;
+}
+
+#message.warning {
+    color: #990000;
+}
+
+/* the board */
+#board {
+    border: 4px solid #8b5a2b;
+    background-color: #a9743d;
+    padding: 6px;
+    margin-bottom: 20px;
+    width: 690px;
+    font-size: 0;
+}
+
+/* the single line board only has 15 squares so its the same width as the full one */
+#board.line {
+    width: 690px;
+}
+
+#board.full {
+    width: 690px;
+}
+
+.board-row {
+    height: 44px;
+    white-space: nowrap;
+}
+
+/* each square on the board */
+.square {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    border: 1px solid #76552f;
+    background-color: #d7c89a;
+    color: #333333;
+    font-size: 10px;
+    line-height: 13px;
+    text-align: center;
+    vertical-align: top;
+    position: relative;
+    overflow: hidden;
+}
+
+/* the little DL/TW label inside the square */
+.square span {
+    display: block;
+    padding-top: 7px;
+}
+
+/* the letter i draw on a blank tile after its placed */
+.blank-letter {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+
+/* bonus square colors */
+.double-letter {
+    background-color: #99d9ea;
+}
+
+.triple-letter {
+    background-color: #0070c0;
+    color: #ffffff;
+}
+
+.double-word,
+.start {
+    background-color: #f4b6b6;
+}
+
+.triple-word {
+    background-color: #b54232;
+    color: #ffffff;
+}
+
+/* yellow when you hover a good square, red when you cant drop */
+.ui-droppable-hover {
+    outline: 3px solid #ffff00;
+}
+
+.blocked {
+    outline: 3px solid #cc0000;
+}
+
+/* the wooden rack */
+#rack_area {
+    width: 560px;
+    min-height: 110px;
+    padding: 35px 25px 15px 25px;
+    margin-bottom: 20px;
+    background-image: url("../graphics_data/scrabble-tile-holder-406774_640.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* spread the tiles out so they fill the whole rack insted of bunching up */
+#rack {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tile {
+    width: 48px;
+    height: 52px;
+    margin: 4px;
+    cursor: move;
+    vertical-align: top;
+}
+
+/* on the board the tile has to stay square size so it fits the square */
+.square .tile {
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+}
+
+.tile.locked {
+    cursor: default;
+}
+
+/* the two columns at the bottom (history + bonus key) */
+#left_column {
+    float: left;
+    width: 560px;
+}
+
+#right_column {
+    float: left;
+    width: 320px;
+    margin-left: 40px;
+}
+
+#history {
+    min-height: 50px;
+}
+
+/* the bonus color key */
+#legend {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#legend li {
+    margin-bottom: 8px;
+}
+
+.sample {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #666666;
+    vertical-align: middle;
+}
+
+.clear {
+    clear: both;
+}
